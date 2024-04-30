@@ -1,42 +1,53 @@
-# CMPS 6730 Sample Project
+# Sentiment Review Detection
 
-This repository contains starter code for the final project in CMPS 4730/6730: Natural Language Processing at Tulane University.
+## Overview
+This application utilizes Artificial Neural Networks (ANN), Recurrent Neural Networks (RNN), and Transformer models to detect and analyze sentiment in user-provided reviews. Users can input reviews manually or upload a CSV file for bulk analysis. The application is built using Streamlit, making it user-friendly for interactive prediction tasks.
 
-The code in this repository will be copied into your team's project repository at the start of class to provide a starting point for your project.
+## Features
+- **Manual Review Input**: Users can type or paste a single review and get the sentiment analysis in real-time.
+- **Bulk Review Processing**: Users can upload a CSV file containing multiple reviews to get batch sentiment predictions.
+- **Model Selection**: Choose between ANN, RNN, and Transformer models for sentiment prediction.
+- **Visual Analytics**: Generates bar plots showing the distribution of sentiments across the reviews.
 
-You should edit this file to include a summary of the goals, methods, and conclusions of your project.
+## Prerequisites
+Ensure you have the following installed:
+- Python 3.8 or newer
+- Streamlit
+- TensorFlow
+- Scikit-learn
+- Pandas
+- Numpy
+- Matplotlib
+- Joblib
 
-The structure of the code supports the following:
+## Usage
 
-- A simple web UI using Flask to support a demo of the project
-- A command-line interface to support running different stages of the project's pipeline
-- The ability to easily reproduce your work on another machine by using virtualenv and providing access to external data sources.
+To run the application, navigate to the project directory in the terminal and run:
 
-### Using this repository
+```bash
+streamlit run main.py
+```
 
-- At the start of the course, students will be divided into project teams. Each team will receive a copy of this starter code in a new repository. E.g.:
-https://github.com/tulane-cmps6730/project-alpha
-- Each team member will then clone their team repository to their personal computer to work on their project. E.g.: `git clone https://github.com/tulane-cmps6730/project-alpha`
-- See [GettingStarted.md](GettingStarted.md) for instructions on using the starter code.
+### Interactive Components
+- **Choose Model**: Select the prediction model from a dropdown.
+- **Choose Mode**: Choose either 'Manual Input' for single review predictions or 'Upload CSV' for bulk predictions.
+- **Detect Sentiment**: After entering a review or uploading a file, click this button to generate predictions.
 
+## Data Format
 
-### Contents
+For CSV uploads, ensure your data is formatted with a column named 'review' containing the text entries for analysis.
 
-- [docs](docs): template to create slides for project presentations
-- [nlp](nlp): Python project code
-- [notebooks](notebooks): Jupyter notebooks for project development and experimentation
-- [report](report): LaTeX report
-- [tests](tests): unit tests for project code
+Example:
+```csv
+review
+"I love this product!"
+"Terrible customer service."
+```
 
-### Background Resources
+## Models
 
-The following will give you some technical background on the technologies used here:
+The models used in this application are trained using separate notebooks:
+- `LSTMANDANN.ipynb` for the ANN and RNN models.
+- `transformer.ipynb` for the Transformer model.
 
-1. Refresh your Python by completing this online tutorial: <https://www.learnpython.org/> (3 hours)
-2. Create a GitHub account at <https://github.com/>
-3. Setup git by following <https://help.github.com/en/articles/set-up-git> (30 minutes)
-4. Learn git by completing the [Introduction to GitHub](https://lab.github.com/githubtraining/introduction-to-github) tutorial, reading the [git handbook](https://guides.github.com/introduction/git-handbook/), then completing the [Managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) tutorial (1 hour).
-5. Install the Python data science stack from <https://www.anaconda.com/distribution/> . **We will use Python 3** (30 minutes)
-6. Complete the scikit-learn tutorial from <https://www.datacamp.com/community/tutorials/machine-learning-python> (2 hours)
-7. Understand how python packages work by going through the [Python Packaging User Guide](https://packaging.python.org/tutorials/) (you can skip the "Creating Documentation" section). (1 hour)
-8. Complete Part 1 of the [Flask tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world), which is the library we will use for making a web demo for your project.
+Ensure these models are correctly loaded from the `models` directory.
